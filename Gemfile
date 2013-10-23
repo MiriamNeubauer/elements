@@ -8,6 +8,17 @@ gem 'rails', '3.2.14'
 gem 'sqlite3'
 
 
+group :development, :test do
+    gem 'rspec-rails'
+    gem 'shoulda-matchers'
+    gem 'pry'
+    gem 'pry-rails'
+
+    # Suggested by Kyle for easier log readability....
+    # Can turn Rails Asset Pipeline Logging on/off - in config/application.rb: config.quiet_assets = false # True = turns off the Rails Asset Pipeline Logging
+    gem 'quiet_assets', :group => :development
+end
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

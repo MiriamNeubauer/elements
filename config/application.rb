@@ -9,6 +9,8 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
+config.quiet_assets = false # True = turns off the Rails Asset Pipeline Logging
+
 module Elements
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
