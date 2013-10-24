@@ -23,14 +23,69 @@
       <div class="row">
         <div class="col-lg-3">
           <div id="search_filter">
-            <center><p>Search Filter</p></center>
+            <H3>Search Filter</H3>
+
+            <form class="form-inline" method="post" action="/site/search">
+
+              <div class="row" id="form_spacing">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-10">
+                  <input type="checkbox" name="artist[name]" value="Photo" class="form-control" id="focusedInput">Photo
+                  <input type="checkbox" name="team" value="pacers"> Pacers<br>
+                </div>
+                <div class="col-lg-1"></div>
+              </div>
+
+              <div class="row" id="form_spacing">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-10">
+                  <input class="form-control" id="focusedInput" type="text" name="artist[nationality]" placeholder="Nationality">
+                </div>
+                <div class="col-lg-1"></div>
+              </div>
+
+              <div class="row" id="form_spacing">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-10">
+                <input class="form-control" id="focusedInput" type="date" name="artist[dob]" placeholder="D.O.B.">
+                </div>
+                <div class="col-lg-1"></div>
+              </div>
+
+              <div class="row" id="form_spacing">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-10">
+                  <input class="form-control" id="focusedInput" type="text" name="artist[period]" placeholder="Period">
+                </div>
+                <div class="col-lg-1"></div>
+              </div>
+
+              <div class="row" id="form_spacing">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-10">
+                  <input class="form-control" id="focusedInput" type="url" name="artist[image]" placeholder="Photo link">
+                </div>
+                <div class="col-lg-1"></div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-10" id="position_search_button">
+                  <input class="btn btn-primary" type="submit" name="searchButton" value="Search"/>
+                </div>
+                <div class="col-lg-1"></div>
+              </div>
+
+            </form>
           </div>
         </div>
+
         <div class="col-lg-9">
           <div id="results_pane">
             <center><p>Results Pane</p></center>
           </div>
         </div>
+
       </div>
 
       <div class="row">
@@ -55,7 +110,7 @@
               <%= link_to "Help", "/" %>
           </div>
 
-          <div class="col-lg-2">
+          <div class="col-lg-2" id="raise_save_button">
               <!-- <%= link_to "SAVE", "/" %> -->
               <form class="form-inline" method="get" action="/">
                 <input class="btn btn-primary" type="submit" name="saveResults" value="Save Results"
@@ -80,4 +135,3 @@
 
   </div>
 </div>
-
