@@ -3,11 +3,17 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 body {
-  background-color: black;
+  background-color: white;
+}
+
+.start_page {
+  text-align: center;
+  margin: 150px auto;
 }
 
 img {
-  margin: 30px auto 0 auto;
-  border: 4px dashed silver;
-  border-radius: 5%;
+  background-color: black; //#c8c8c8;
+  padding: 10px;
+  border: 6px dashed white;
+  border-radius: 4%;
 }
