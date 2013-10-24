@@ -1,3 +1,16 @@
-<div class="start_page">
-  <img src="/assets/elements_394x150_large_editors_pick.png" width="500" height="200"/>
+<div id="container">
+  <div id="user_nav">
+    <center>
+      <img id="start_page_image" src="/assets/elements_394x150_large_editors_pick.png" width="500" height="200"/>
+      <br/>
+      <% if current_user %>
+        <p id="signed_in_msg">Signed in as <strong><%= current_user.name %></strong>!&nbsp;&nbsp;
+          <%= link_to "Sign out", signout_path, id: "sign_out" %>
+        </p>
+      <% else %>
+       <p><%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %></p>
+      <% end %>
+    </center>
+  </div>
 </div>
+

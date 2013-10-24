@@ -2,18 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-body {
-  background-color: white;
+
+#start_page_image {
+//  margin: 0 auto;
+//  background-color: black; //#c8c8c8;
+    padding: 10px;
+//  border: 6px dashed white;
+//  border-radius: 4%;
 }
 
-.start_page {
-  text-align: center;
-  margin: 150px auto;
-}
-
-img {
-  background-color: black; //#c8c8c8;
-  padding: 10px;
-  border: 6px dashed white;
-  border-radius: 4%;
-}
