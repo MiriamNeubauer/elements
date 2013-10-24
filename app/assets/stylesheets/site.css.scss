@@ -2,12 +2,39 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#user_nav {
+  position: relative;
+  align-text: center;
+}
 
 #start_page_image {
 //  margin: 0 auto;
 //  background-color: black; //#c8c8c8;
-    padding: 10px;
+    padding: 30px 10px 10px 10px;
 //  border: 6px dashed white;
 //  border-radius: 4%;
+    text-align: center;
 }
 
+#signed_in_msg {
+  display: inline;
+  text-align: right;
+  color: #FFF;
+  font-size: 12pt;
+  //margin: 5px 0 -5px 0;
+}
+
+#signed_in_logo {
+  position: absolute;
+  margin: 0 0 5px 5px;
+  text-align: left;
+  margin: 8px 0 0 -3px;
+}
+
+#footer {
+  //display: inline;
+  text-align: center;
+  color: #FFF;
+  font-size: 12pt;
+  padding: 0 0 40px 0;
+}

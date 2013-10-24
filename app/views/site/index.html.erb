@@ -1,16 +1,83 @@
 <div id="container">
+
   <div id="user_nav">
-    <center>
-      <img id="start_page_image" src="/assets/elements_394x150_large_editors_pick.png" width="500" height="200"/>
-      <br/>
-      <% if current_user %>
-        <p id="signed_in_msg">Signed in as <strong><%= current_user.name %></strong>!&nbsp;&nbsp;
-          <%= link_to "Sign out", signout_path, id: "sign_out" %>
-        </p>
-      <% else %>
-       <p><%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %></p>
-      <% end %>
-    </center>
+    <% if current_user %>
+      <div class="row">
+        <div id="signed_in_msg">
+          <div class="col-lg-1">
+            <div id="signed_in_logo">
+              <!-- <img src="/assets/elements_40x40_icon.png"/> -->
+              <img src="/assets/elements_240x60_app_logo.png" height="45" />
+            </div>
+          </div>
+          <div class="col-lg-11">
+            <img src="<%= current_user.user_picture %>" width="40" height="40"/>&nbsp;&nbsp;
+            <!-- Number of Friends: <%= current_user.friends_count %>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
+            Signed in as <strong><%= current_user.name %></strong>!&nbsp;&nbsp; -->
+            <strong><%= current_user.name %></strong>&nbsp;&nbsp;
+            <%= link_to "Sign out", signout_path, id: "sign_out" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-3">
+          <div id="search_filter">
+            <center><p>Search Filter</p></center>
+          </div>
+        </div>
+        <div class="col-lg-9">
+          <div id="results_pane">
+            <center><p>Results Pane</p></center>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div id="footer">
+          <div class="col-lg-2">
+              <%= link_to "Privacy Policy", "/" %>
+          </div>
+
+          <div class="col-lg-2">
+              <%= link_to "Terms Of Service", "/" %>
+          </div>
+
+          <div class="col-lg-2">
+              <%= link_to "User Support", "/" %>
+          </div>
+
+          <div class="col-lg-2">
+              <%= link_to "Contact Us", "/" %>
+          </div>
+
+          <div class="col-lg-2">
+              <%= link_to "Help", "/" %>
+          </div>
+
+          <div class="col-lg-2">
+              <!-- <%= link_to "SAVE", "/" %> -->
+              <form class="form-inline" method="get" action="/">
+                <input class="btn btn-primary" type="submit" name="saveResults" value="Save Results"
+              </form>
+          </div>
+        </div>
+      </div>
+
+    <% else %>
+
+      <div class="row">
+          <div class="col-lg-12">
+              <div id="start_page_image">
+                <img src="/assets/elements_394x150_large_editors_pick.png" width="500" height="200"/>
+                <br/>
+                <p><%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %></p>
+              </div>
+          </div>
+      </div>
+
+    <% end %>
+
   </div>
 </div>
 

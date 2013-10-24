@@ -12,7 +12,10 @@ a img {
 a {
   //color: #0000FF;
   color: #FFF;
-  font-size: 18pt;
+}
+
+a:hover {
+  color: yellow;
 }
 
 .clear {
@@ -26,9 +29,27 @@ a {
   margin: 0 auto;
   //background-color: #FFF;
   background-color: #4B7399;
-  padding: 20px 40px;
+  //background-color: black;
+  //padding: 20px 40px;
+  padding: 0px 20px 0px 20px;
   border: solid 1px black;
   margin-top: 40px;
+}
+
+#search_filter{
+  color: white;
+  background-color: #c7c7c7;
+  border: 1px solid black;
+  height: 700px;
+  margin: 20px 10px 20px 0;
+}
+
+#results_pane{
+  color: white;
+  background-color: #a7a7a7;
+  border: 1px solid black;
+  height: 700px;
+  margin: 20px 0 20px -20px;
 }
 
 .error_messages {
@@ -57,16 +78,4 @@ a {
 
 .error_messages ul {
   margin-bottom: 0;
-}
-
-#user_nav {
-  position: relative;
-  margin: 0 auto;
-  //float: right;
-  //align-text: center;
-}
-
-#signed_in_msg {
-  color: #FFF;
-  font-size: 18pt;
 }
