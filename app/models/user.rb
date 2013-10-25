@@ -28,4 +28,14 @@ class User < ActiveRecord::Base
     facebook { |fb| fb.get_picture("me")}
   end
 
+  def public_details
+    facebook { |fb| fb.get_object("me")}
+    #user = graph.get_object("me")
+  end
+
+  def friends
+    facebook { |fb| fb.get_connections("me", "friends")}
+    #friends = graph.get_connections(user["id"], "friends")
+  end
+
 end

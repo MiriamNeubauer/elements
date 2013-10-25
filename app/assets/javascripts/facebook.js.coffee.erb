@@ -1,0 +1,69 @@
+
+
+jQuery ->
+  $('body').prepend('<div id="fb-root"></div>')
+
+  $.ajax
+    url: "#{window.location.protocol}//connect.facebook.net/en_US/all.js"
+    dataType: 'script'
+    cache: true
+
+
+  window.fbAsyncInit = ->
+    FB.init(appId: '<%= ENV["FACEBOOK_APP_ID"] %>', cookie: true)
+
+    $('#sign_in').click (e) ->
+      e.preventDefault()
+      FB.login (response) ->
+        window.location = '/auth/facebook' if response.authResponse
+
+    $('#sign_out').click (e) ->
+      FB.getLoginStatus (response) ->
+        FB.logout() if response.authResponse
+      true
+
+    $('#clear-results').click (event) ->
+      $('#results_pane').empty()
+
+    if $('#sign_out').length > 0
+      FB.getLoginStatus (response) ->
+        window.location = $('#sign_out').attr('href') if !response.authResponse
+
+
+   $("#searchForm").on "submit", (e) ->
+    #console.log "worked"
+    #alert "test"
+    e.preventDefault()
+    public_details = $("#public_details").is(':checked');
+    friends = $("#friends").is(':checked');
+    photos = $("#photos").is(':checked');
+    photos_uploaded = $("#photos_uploaded").is(':checked');
+    photos_tagged = $("#photos_tagged").is(':checked');
+    albums = $("#albums").is(':checked');
+    text_filter = $("#text_filter").val();
+    result_count = $("#result_count").val();
+    $.post("/site/search",
+      search:
+        pdetails: public_details
+        friends: friends
+        photos: photos
+        photos_uploaded: photos_uploaded
+        photos_tagged: photos_tagged
+        albums: albums
+        text_filter: text_filter
+        result_count: result_count
+    ).done (data) ->
+      #debugger;
+      detailsString = "<div class='result'> <b>ID:</b> #{data.id} </div>"
+      detailsString += "<div class='result'> <b>Name:</b> #{data.name} </div>"
+      detailsString += "<div class='result'> <b>First name:</b> #{data.first_name} </div>"
+      detailsString += "<div class='result'> <b>Last name:</b> #{data.last_name} </div>"
+      detailsString += "<div class='result'> <b>Link:</b> #{data.link} </div>"
+      detailsString += "<div class='result'> <b>Username:</b> #{data.username} </div>"
+      detailsString += "<div class='result'> <b>Hometown:</b> #{data.hometown.name} </div>"
+      detailsString += "<div class='result'> <b>Location:</b> #{data.location.name} </div>"
+      detailsString += "<div class='result'> <b>Email:</b> #{data.email} </div>"
+      detailsString += "<div class='result'> <hr> </div>"
+      $("#results_pane").append $(detailsString);
+
+
